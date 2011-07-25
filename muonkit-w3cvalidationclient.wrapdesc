@@ -1,0 +1,5 @@
+﻿name: muonkit-w3cvalidationclient
+depends: openwrap anchored content
+depends: nunit-withrunner
+build: msbuild;project=src\MuonKit.W3cValidationClient\MuonKit.W3cValidationClient.csproj
+use-symlinks: false

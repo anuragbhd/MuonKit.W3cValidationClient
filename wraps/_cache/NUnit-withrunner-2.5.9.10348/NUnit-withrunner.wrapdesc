@@ -1,0 +1,5 @@
+﻿name: NUnit-withrunner
+depends: openwrap anchored content
+use-symlinks: false
+build: command; path=make.bat; args=;
+version: 2.5.9.10348
