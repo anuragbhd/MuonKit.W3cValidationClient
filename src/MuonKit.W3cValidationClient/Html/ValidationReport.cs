@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MuonKit.W3cValidationClient
+namespace MuonKit.W3cValidationClient.Html
 {
 	public class ValidationReport
 	{

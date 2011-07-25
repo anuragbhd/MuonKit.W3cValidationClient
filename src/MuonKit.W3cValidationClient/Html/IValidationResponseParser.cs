@@ -1,9 +1,9 @@
-namespace MuonKit.W3cValidationClient
+namespace MuonKit.W3cValidationClient.Html
 {
 	/// <summary>
 	/// Parses the response from the W3C API
 	/// </summary>
-	public interface IResponseParser
+	public interface IValidationResponseParser
 	{
 		ValidationReport ParseResponse(string response);
 	}

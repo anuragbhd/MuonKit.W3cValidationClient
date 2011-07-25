@@ -1,16 +1,17 @@
 using System.Web;
+using MuonKit.W3cValidationClient.Html;
 
 namespace MuonKit.W3cValidationClient
 {
-	public class W3CValidator : IW3CValidator
+	public class W3CHtmlValidator : IW3CHtmlValidator
 	{
 		readonly IHttpClient httpClient;
-		readonly IResponseParser responseParser;
+		readonly IValidationResponseParser validationResponseParser;
 
-		public W3CValidator(IHttpClient httpClient, IResponseParser responseParser)
+		public W3CHtmlValidator(IHttpClient httpClient, IValidationResponseParser validationResponseParser)
 		{
 			this.httpClient = httpClient;
-			this.responseParser = responseParser;
+			this.validationResponseParser = validationResponseParser;
 		}
 
 		public ValidationReport ValidateUri(string uri, string charset, string doctype)
@@ -30,7 +31,7 @@ namespace MuonKit.W3cValidationClient
 
 			var response = this.httpClient.Post(validatorAddress, body);
 
-			return responseParser.ParseResponse(response);
+			return this.validationResponseParser.ParseResponse(response);
 		}
 
 		public ValidationReport ValidateDocument(string document, string charset = null, string doctype = null)
@@ -58,7 +59,7 @@ namespace MuonKit.W3cValidationClient
 
 			var response = this.httpClient.Post(validatorAddress, body);
 
-			return responseParser.ParseResponse(response);
+			return this.validationResponseParser.ParseResponse(response);
 		}
 	}
 }

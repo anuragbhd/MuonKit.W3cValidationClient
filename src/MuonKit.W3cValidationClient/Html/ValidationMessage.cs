@@ -1,4 +1,4 @@
-﻿namespace MuonKit.W3cValidationClient
+﻿namespace MuonKit.W3cValidationClient.Html
 {
 	/// <summary>
 	/// Represents Error or Warning data

@@ -36,7 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Soap12ResponseParserSpecs\WarningsAndErrors.cs" />
+    <Compile Include="Html\Soap12ResponseParserSpecs\WarningsAndErrors.cs" />
     <Compile Include="W3cValidatorSpecs\ShouldWork.cs" />
   </ItemGroup>
   <ItemGroup>

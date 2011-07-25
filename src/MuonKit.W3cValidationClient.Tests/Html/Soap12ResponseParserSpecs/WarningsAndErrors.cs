@@ -1,7 +1,8 @@
 using System.Linq;
+using MuonKit.W3cValidationClient.Html;
 using NUnit.Framework;
 
-namespace MuonKit.W3cValidationClient.Tests.Soap12ResponseParserSpecs
+namespace MuonKit.W3cValidationClient.Tests.Html.Soap12ResponseParserSpecs
 {
 	[TestFixture]
 	public class WarningsAndErrors
@@ -72,7 +73,7 @@ namespace MuonKit.W3cValidationClient.Tests.Soap12ResponseParserSpecs
 		[Test]
 		public void ShouldParseCorrectly()
 		{
-			var soap12ResponseParser = new Soap12ResponseParser();
+			var soap12ResponseParser = new Soap12ValidationResponseParser();
 			var validationReport = soap12ResponseParser.ParseResponse(ResponseBody);
 
 			Assert.AreEqual("upload://Form Submission", validationReport.Uri);

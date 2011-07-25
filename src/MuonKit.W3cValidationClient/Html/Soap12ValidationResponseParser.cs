@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 
-namespace MuonKit.W3cValidationClient
+namespace MuonKit.W3cValidationClient.Html
 {
 	/// <summary>
-	/// Handles parsing the SOAP 1.2 response from the W3C API
+	/// Handles parsing the SOAP 1.2 response from the W3C API for HTML documents
 	/// </summary>
-	public class Soap12ResponseParser : IResponseParser
+	public class Soap12ValidationResponseParser : IValidationResponseParser
 	{
 		public ValidationReport ParseResponse(string response)
 		{
