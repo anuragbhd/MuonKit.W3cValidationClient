@@ -1,14 +1,27 @@
 using System.Web;
-using MuonKit.W3cValidationClient.Html;
 
-namespace MuonKit.W3cValidationClient
+namespace MuonKit.W3cValidationClient.Html
 {
-	public class W3CHtmlValidator : IW3CHtmlValidator
+	public class W3CValidator : IW3CValidator
 	{
+		const string defaultValidatorAddress = "http://validator.w3.org/check";
 		readonly IHttpClient httpClient;
 		readonly IValidationResponseParser validationResponseParser;
 
-		public W3CHtmlValidator(IHttpClient httpClient, IValidationResponseParser validationResponseParser)
+		/// <summary>
+		/// Creates a new validator
+		/// </summary>
+		public W3CValidator() : 
+			this(new HttpClient(), new Soap12ValidationResponseParser())
+		{
+		}
+
+		/// <summary>
+		/// Creates a new validator
+		/// </summary>
+		/// <param name="httpClient">The HTTP client</param>
+		/// <param name="validationResponseParser">The API reponse parser</param>
+		public W3CValidator(IHttpClient httpClient, IValidationResponseParser validationResponseParser)
 		{
 			this.httpClient = httpClient;
 			this.validationResponseParser = validationResponseParser;
@@ -16,7 +29,7 @@ namespace MuonKit.W3cValidationClient
 
 		public ValidationReport ValidateUri(string uri, string charset, string doctype)
 		{
-			return ValidateUri("http://validator.w3.org/check", uri, charset, doctype);
+			return ValidateUri(defaultValidatorAddress, uri, charset, doctype);
 		}
 
 		public ValidationReport ValidateUri(string validatorAddress, string uri, string charset = null, string doctype = null)
@@ -36,7 +49,7 @@ namespace MuonKit.W3cValidationClient
 
 		public ValidationReport ValidateDocument(string document, string charset = null, string doctype = null)
 		{
-			return this.ValidateDocument("http://validator.w3.org/check", document, charset, doctype);
+			return this.ValidateDocument(defaultValidatorAddress, document, charset, doctype);
 		}
 
 		/// <summary>

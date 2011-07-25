@@ -37,19 +37,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Css\IValidationResponseParser.cs" />
+    <Compile Include="Css\Soap12ValidationResponseParser.cs" />
+    <Compile Include="Css\ValidationMessage.cs" />
+    <Compile Include="Css\ValidationReport.cs" />
     <Compile Include="HttpClient.cs" />
     <Compile Include="IHttpClient.cs" />
     <Compile Include="Html\IValidationResponseParser.cs" />
-    <Compile Include="IW3cValidator.cs" />
+    <Compile Include="Html\IW3cValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Html\Soap12ValidationResponseParser.cs" />
     <Compile Include="Html\ValidationMessage.cs" />
     <Compile Include="Html\ValidationReport.cs" />
-    <Compile Include="W3cValidator.cs" />
+    <Compile Include="Html\W3cValidator.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Css\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

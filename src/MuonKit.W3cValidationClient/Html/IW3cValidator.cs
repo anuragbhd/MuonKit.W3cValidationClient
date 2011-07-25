@@ -1,8 +1,6 @@
-using MuonKit.W3cValidationClient.Html;
-
-namespace MuonKit.W3cValidationClient
+namespace MuonKit.W3cValidationClient.Html
 {
-	public interface IW3CHtmlValidator
+	public interface IW3CValidator
 	{
 		/// <summary>
 		/// Validates a remote URI, using "http://validator.w3.org/check"
