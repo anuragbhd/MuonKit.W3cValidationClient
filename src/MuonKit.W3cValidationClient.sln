@@ -1,15 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.W3cValidationClient", "MuonKit.W3cValidationClient\MuonKit.W3cValidationClient.csproj", "{8FB6A2FB-EB0B-4FD4-BDB7-2C601A0D55CE}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.W3cValidationClient", "MuonKit.W3cValidationClient\MuonKit.W3cValidationClient.csproj", "{94A4598E-D45C-4EAC-B25E-94DFCABBF078}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{03CD39A9-8F65-4D2A-B97F-B1FBDA76579C}"
-	ProjectSection(SolutionItems) = preProject
-		..\muonkit-w3cvalidationclient.wrapdesc = ..\muonkit-w3cvalidationclient.wrapdesc
-		..\version = ..\version
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.W3cValidationClient.Tests", "MuonKit.W3cValidationClient.Tests\MuonKit.W3cValidationClient.Tests.csproj", "{58157B48-9735-4957-8F7E-1156178C3608}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuonKit.W3cValidationClient.Test", "MuonKit.W3cValidationClient.Test\MuonKit.W3cValidationClient.Test.csproj", "{1B832796-D076-4B6A-9B9E-46FA961F0E1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,16 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8FB6A2FB-EB0B-4FD4-BDB7-2C601A0D55CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FB6A2FB-EB0B-4FD4-BDB7-2C601A0D55CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FB6A2FB-EB0B-4FD4-BDB7-2C601A0D55CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FB6A2FB-EB0B-4FD4-BDB7-2C601A0D55CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58157B48-9735-4957-8F7E-1156178C3608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58157B48-9735-4957-8F7E-1156178C3608}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58157B48-9735-4957-8F7E-1156178C3608}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58157B48-9735-4957-8F7E-1156178C3608}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		{1B832796-D076-4B6A-9B9E-46FA961F0E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B832796-D076-4B6A-9B9E-46FA961F0E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B832796-D076-4B6A-9B9E-46FA961F0E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B832796-D076-4B6A-9B9E-46FA961F0E1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94A4598E-D45C-4EAC-B25E-94DFCABBF078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A4598E-D45C-4EAC-B25E-94DFCABBF078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A4598E-D45C-4EAC-B25E-94DFCABBF078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A4598E-D45C-4EAC-B25E-94DFCABBF078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

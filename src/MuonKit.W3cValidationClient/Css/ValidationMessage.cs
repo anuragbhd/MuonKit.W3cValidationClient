@@ -6,20 +6,14 @@
 	public class ValidationMessage
 	{
 		public long? Line { get; private set; }
-		public long? Column { get; private set; }
+        public string Level { get; private set; }
 		public string Message { get; private set; }
-		public string MessageId { get; private set; }
-		public string Explanation { get; private set; }
-		public string Source { get; private set; }
 
-		public ValidationMessage(long? line, long? column, string message, string messageId, string explanation, string source)
+		public ValidationMessage(long? line, string level, string message)
 		{
 			this.Line = line;
-			this.Column = column;
+			this.Level = level;
 			this.Message = message;
-			this.MessageId = messageId;
-			this.Explanation = explanation;
-			this.Source = source;
 		}
 	}
 }

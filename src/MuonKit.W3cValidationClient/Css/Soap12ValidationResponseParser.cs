@@ -17,18 +17,17 @@ namespace MuonKit.W3cValidationClient.Css
 			
 			// this is a hack. how to get them auto from the document?
 			xmlNamespaceManager.AddNamespace("env", "http://www.w3.org/2003/05/soap-envelope");
-			xmlNamespaceManager.AddNamespace("m", "http://www.w3.org/2005/10/markup-validator");
+			xmlNamespaceManager.AddNamespace("m", "http://www.w3.org/2005/07/css-validator");
 
-			var validationResponse = xmlDocument.SelectSingleNode("env:Envelope/env:Body/m:markupvalidationresponse", xmlNamespaceManager);
+            var validationResponse = xmlDocument.SelectSingleNode("env:Envelope/env:Body/m:cssvalidationresponse", xmlNamespaceManager);
 
 			var uri = validationResponse.SelectSingleNode("m:uri", xmlNamespaceManager).InnerText;
 			var checkedBy = validationResponse.SelectSingleNode("m:checkedby", xmlNamespaceManager).InnerText;
-			var doctype = validationResponse.SelectSingleNode("m:doctype", xmlNamespaceManager).InnerText;
-			var charset = validationResponse.SelectSingleNode("m:charset", xmlNamespaceManager).InnerText;
+            var csslevel = validationResponse.SelectSingleNode("m:csslevel", xmlNamespaceManager).InnerText;
 			var validity = bool.Parse(validationResponse.SelectSingleNode("m:validity", xmlNamespaceManager).InnerText);
 
-
-			var errors = validationResponse.SelectSingleNode("m:errors", xmlNamespaceManager);
+            var result = validationResponse.SelectSingleNode("m:result", xmlNamespaceManager);
+			var errors = result.SelectSingleNode("m:errors", xmlNamespaceManager);
 			var errorCount = int.Parse(errors.SelectSingleNode("m:errorcount", xmlNamespaceManager).InnerText);
 
 			var errorList = errors.SelectNodes("m:errorlist/m:error", xmlNamespaceManager);
@@ -39,7 +38,7 @@ namespace MuonKit.W3cValidationClient.Css
 				parsedErrors.Add(validationMessage);
 			}
 
-			var warnings = validationResponse.SelectSingleNode("m:warnings", xmlNamespaceManager);
+			var warnings = result.SelectSingleNode("m:warnings", xmlNamespaceManager);
 			var warningCount = int.Parse(warnings.SelectSingleNode("m:warningcount", xmlNamespaceManager).InnerText);
 
 			var warningList = warnings.SelectNodes("m:warninglist/m:warning", xmlNamespaceManager);
@@ -50,7 +49,7 @@ namespace MuonKit.W3cValidationClient.Css
 				parsedWarnings.Add(validationMessage);
 			}
 
-			return new ValidationReport(uri, checkedBy, doctype, charset, validity, errorCount, parsedErrors, warningCount, parsedWarnings);
+			return new ValidationReport(uri, checkedBy, csslevel, validity, errorCount, parsedErrors, warningCount, parsedWarnings);
 		}
 
 		/// <summary>
@@ -64,22 +63,13 @@ namespace MuonKit.W3cValidationClient.Css
 			var xmlLine = error.SelectSingleNode("m:line", xmlNamespaceManager);
 			var line = xmlLine != null ? (int?)int.Parse(xmlLine.InnerText) : null;
 
-			var xmlCol = error.SelectSingleNode("m:col", xmlNamespaceManager);
-			var col = xmlCol != null ? (int?)int.Parse(xmlCol.InnerText) : null;
+            var xmlLevel = error.SelectSingleNode("m:level", xmlNamespaceManager);
+            var level = xmlLevel != null ? xmlLevel.InnerText : null;
 
 			var xmlMessage = error.SelectSingleNode("m:message", xmlNamespaceManager);
 			var message = xmlMessage != null ? xmlMessage.InnerText : null;
 
-			var xmlMessageId = error.SelectSingleNode("m:messageid", xmlNamespaceManager);
-			var messageId = xmlMessageId != null ? xmlMessageId.InnerText : null;
-
-			var xmlExplanation = error.SelectSingleNode("m:explanation", xmlNamespaceManager);
-			var explanation = xmlExplanation != null ? xmlExplanation.InnerText : null;
-
-			var xmlSource = error.SelectSingleNode("m:source", xmlNamespaceManager);
-			var source = xmlSource != null ? xmlSource.InnerText : null;
-
-			return new ValidationMessage(line, col, message, messageId, explanation, source);
+			return new ValidationMessage(line, level, message);
 		}
 	}
 }
